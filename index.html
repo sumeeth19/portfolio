@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Sai Sumeeth Pagadala | Data & Analytics Portfolio</title>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container nav">
+    <div class="brand">
+      <b>Sai Sumeeth Pagadala</b>
+      <small>Data & Analytics • SQL • Power BI • BigQuery • PySpark • GCP</small>
+    </div>
+
+    <button class="navbtn" data-navbtn>Menu</button>
+
+    <div class="navlinks" data-navlinks>
+      <a href="index.html">Home</a>
+      <a href="data-analyst.html">Data Analyst</a>
+      <a href="data-engineer.html">Data Engineer</a>
+      <a href="business-analyst.html">Business Analyst</a>
+      <a href="big-data-dev.html">Big Data Dev</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="card pad">
+      <span class="badge">✨ Premium Multi-Role Portfolio</span>
+      <div class="h1">Turning data into decisions.</div>
+      
+
+      <p class="sub">
+        I build analytics, dashboards, and pipelines using <b>SQL</b>, <b>Power BI</b>, <b>BigQuery</b>,
+        <b>PySpark</b>, and <b>Google Cloud</b>—focused on clean metrics, performance, and storytelling.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Projects</a>
+     <div class="resume-wrapper">
+  <button id="resumeBtn" class="btn btn-primary btn-success">
+    Download Resume
+  </button>
+
+  <div id="resumeMenu" class="resume-menu">
+    <button data-file="resume_data_analyst.pdf">Data Analyst</button>
+    <button data-file="resume_data_engineer.pdf">Data Engineer</button>
+    <button data-file="resume_business_analyst.pdf">Business Analyst</button>
+    <button data-file="resume_big_data_dev.pdf">Big Data Dev</button>
+  </div>
+</div>
+      </div>
+
+
+      
+
+      <div class="section">
+        <h2>Core Skills</h2>
+        <div class="quick">
+          <span class="pill">SQL</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">BigQuery</span>
+          <span class="pill">PySpark</span>
+          <span class="pill">GCS</span>
+          <span class="pill">Dataproc</span>
+          <span class="pill">Dataflow</span>
+          <span class="pill">Excel</span>
+          <span class="pill">Apache Airflow</span>
+          <span class="pill">Pub/Sub</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card pad">
+      <div class="profile">
+        <div class="avatar">
+          <img src="assets/images/profile.jpeg" alt="Profile photo"/>
+        </div>
+        <div>
+          <b style="font-size:18px">Sai Sumeeth Pagadala</b><br/>
+          <small style="color:var(--muted)">Hyderabad, India</small><br/>
+          <small style="color:var(--muted)">pagadalas1906@gmail.com</small>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Role Tracks</h2>
+        <div class="cta">
+          <a class="btn" href="data-analyst.html">📊 Data Analyst</a>
+          <a class="btn" href="data-engineer.html">🛠️ Data Engineer</a>
+          <a class="btn" href="business-analyst.html">📌 Business Analyst</a>
+          <a class="btn" href="big-data-dev.html">⚡ Big Data Dev</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Links</h2>
+        <p class="sub">
+          GitHub: <b><a href="https://github.com/sumeeth19" target="_blank" rel="noopener"><u>https://github.com/sumeeth19</u></b></a></b><br/>
+          LinkedIn: <b><a href="https://www.linkedin.com/in/sai-sumeeth19/" target="_blank" rel="noopener"><u>www.linkedin.com/in/sai-sumeeth19</u></a></</b>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="projects" class="section">
+    <h2>Featured Projects</h2>
+
+    <div class="grid">
+      <a class="project-card" href="projects/retail-analytics.html">
+        <h3>Retail Sales Analytics Platform</h3>
+        <div class="meta">SQL • BigQuery • Power BI • KPI</div>
+        <p>End-to-end analytics: cleaning, KPI modeling, segmentation, MoM/YoY, executive dashboards.</p>
+       
+      </a>
+
+      
+      <a class="project-card" href="projects/kohli-analytics.html">
+  <h3>Virat Kohli Performance Analytics</h3>
+  <div class="meta">Excel • Power BI • KPI</div>
+  <p>Advanced metrics, consistency analysis, forecasting & storytelling</p>
+</a>
+
+
+      <a class="project-card" href="projects/streaming-pipeline.html">
+        <h3>Real-time Streaming Analytics</h3>
+        <div class="meta">Pub/Sub • Dataflow • BigQuery</div>
+        <p>Streaming pipeline with windowing, late data handling, and analytics-ready sink tables.</p>
+        
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 Sai Sumeeth Pagadala
+  </div>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+
+
+<!-- Floating Chat Widget -->
+<div class="chat-fab" id="chatFab">
+  <span class="chat-fab-icon">💬</span>
+  <span class="chat-fab-text">Chat</span>
+</div>
+
+<div class="chat-widget" id="chatWidget" aria-hidden="true">
+  <div class="chat-header">
+    <div class="chat-title">Portfolio Assistant</div>
+    <button class="chat-close" id="chatClose" aria-label="Close">✕</button>
+  </div>
+
+  <div class="chat-body" id="chatWindow"></div>
+  <!-- Quick buttons -->
+<div class="chat-chips" id="chatChips">
+  <button class="chip" data-prompt="Tell me about the Retail Sales Analytics pipeline">Retail</button>
+  <button class="chip" data-prompt="Tell me about your data engineering work on GCP">Data Eng</button>
+  <button class="chip" data-prompt="What skills do you have?">Skills</button>
+  <button class="chip" data-prompt="Share your LinkedIn">LinkedIn</button>
+  <button class="chip" data-prompt="Share your GitHub">GitHub</button>
+  <button class="chip" data-prompt="How can I download your resume?">Resume</button>
+</div>
+
+  <div class="chat-footer">
+    <input id="userInput" class="chat-input" type="text" placeholder="Ask about projects, skills..." />
+    <button id="sendBtn" class="chat-send">Send</button>
+  </div>
+</div>
+
+<div class="card pad" style="margin-top:18px;">
+  <h3 style="margin-top:0;">How to Navigate This Portfolio</h3>
+  <p class="sub">
+    This portfolio is organized by role. Recruiters can directly navigate to the relevant
+    role section (Data Analyst, Data Engineer, Business Analyst, or Big Data Dev) using the
+    top menu or role buttons. Each project includes clear documentation covering business
+    problem, KPIs, analytics logic, and outcomes.
+  </p>
+</div>
+</body>
+</html>
