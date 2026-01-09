@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Virat Kohli Performance Analytics | Documentation</title>
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<div class="topbar">
+  <div class="container nav">
+    <div class="brand">
+      <b>Sai Sumeeth Pagadala</b>
+      <small>Data Analytics Project • Documentation</small>
+    </div>
+    <div class="navlinks" style="display:flex">
+      <a href="../index.html">Home</a>
+      <a href="../data-analyst.html">Data Analyst</a>
+    </div>
+  </div>
+</div>
+
+<!-- Documentation Content -->
+<div class="doc-container">
+
+  <!-- Title -->
+  <div class="doc-title">
+    <h1>Virat Kohli Performance Analytics</h1>
+    <p>
+      Power BI • SQL • Advanced Metrics • Trend Analysis • Forecasting • Sports Analytics
+    </p>
+  </div>
+  <div class="doc-section">
+  <h2>Recruiter Quick Scan</h2>
+  <ul>
+    <li><b>Goal:</b> Convert innings-level stats into deeper performance insights</li>
+    <li><b>Skills:</b> KPI design, trend analysis, segmentation, forecasting logic</li>
+    <li><b>Tools:</b> Power BI (DAX), Excel/SQL (prep)</li>
+    <li><b>Output:</b> Storytelling dashboards + custom metrics + insights</li>
+  </ul>
+</div>
+
+
+
+<div class="doc-section">
+  <h2>Why This Design</h2>
+  <ul>
+    <li><b>Custom indices:</b> basic stats are not enough to measure impact</li>
+    <li><b>Rolling averages:</b> smooth noisy match-to-match performance</li>
+    <li><b>Segmentation:</b> home/away, chase/set gives context to performance</li>
+    <li><b>Storytelling:</b> dashboards explain “why” not just “what”</li>
+  </ul>
+</div>
+
+
+
+
+
+  <!-- 1 -->
+  <div class="doc-section">
+    <h2>1. Problem Statement</h2>
+    <p>
+      Traditional cricket statistics such as total runs and batting average do not fully
+      capture a player's consistency, impact, and performance under different match conditions.
+      The objective was to transform raw innings-level data into deeper analytical insights
+      that explain <b>how</b> and <b>when</b> performance changes.
+    </p>
+  </div>
+
+  <!-- 2 -->
+  <div class="doc-section">
+    <h2>2. Project Objective</h2>
+    <ul>
+      <li>Analyze consistency and impact across innings</li>
+      <li>Evaluate performance under different conditions</li>
+      <li>Identify trends, volatility, and future patterns</li>
+      <li>Present insights using business-style dashboards</li>
+    </ul>
+  </div>
+
+  <!-- 3 -->
+  <div class="doc-section">
+    <h2>3. Dataset Overview</h2>
+    <ul>
+      <li>Innings-level dataset across formats (ODI, T20, IPL)</li>
+      <li>Core fields: Runs, Balls, Strike Rate, Dismissal, Venue</li>
+      <li>Derived attributes: Home/Away/Neutral, Year, Match Context</li>
+      <li>Data size: ~270+ innings</li>
+    </ul>
+  </div>
+
+  <!-- 4 -->
+  <div class="doc-section">
+    <h2>4. Data Preparation & Feature Engineering</h2>
+    <ul>
+      <li>Standardized match dates and innings order</li>
+      <li>Created milestone flags (30+, 50+, 100+)</li>
+      <li>Derived contextual tags (Chase vs Set target)</li>
+      <li>Calculated rolling averages and cumulative metrics</li>
+    </ul>
+  </div>
+<div class="doc-section">
+  <h2>5.Architecture Flow</h2>
+  <pre class="doc-code">Raw Stats (Excel/CSV)
+   ↓
+Data Cleaning + Feature Engineering
+   ↓
+Power BI Data Model
+   ↓
+DAX Measures (Rolling avg, indices, milestones)
+   ↓
+Dashboard Pages (Trends, consistency, conditions)
+   ↓
+Insights & Forecast</pre>
+</div>
+  <!-- 5 -->
+  <div class="doc-section">
+    <h2>6. Key Metrics Defined</h2>
+
+    <table class="doc-table">
+      <tr>
+        <th>Metric</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>Consistency %</td>
+        <td>Percentage of innings with scores above defined thresholds</td>
+      </tr>
+      <tr>
+        <td>Impact Score</td>
+        <td>Weighted score using runs, strike rate, and match context</td>
+      </tr>
+      <tr>
+        <td>Boundary %</td>
+        <td>Proportion of runs scored via boundaries</td>
+      </tr>
+      <tr>
+        <td>Pressure Performance Index</td>
+        <td>Performance in high-pressure match situations</td>
+      </tr>
+      <tr>
+        <td>Volatility</td>
+        <td>Standard deviation of scores to measure consistency</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 6 -->
+  <div class="doc-section">
+    <h2>7. Analytical Techniques Used</h2>
+    <ul>
+      <li>Rolling averages for trend smoothing</li>
+      <li>Year-wise and innings-wise trend analysis</li>
+      <li>Home vs Away vs Neutral comparison</li>
+      <li>Dismissal pattern analysis</li>
+      <li>Forecasting future performance (analytical projection)</li>
+    </ul>
+  </div>
+
+  <!-- 7 -->
+  <div class="doc-section">
+    <h2>8. Sample Analytical Logic</h2>
+    <div class="doc-code">
+<pre>
+Rolling Average (Last 10 Innings) =
+AVERAGEX(
+  TOPN(
+    10,
+    FILTER(
+      ALL(Innings),
+      Innings[Innings_Number] <= MAX(Innings[Innings_Number])
+    ),
+    Innings[Innings_Number], DESC
+  ),
+  Innings[Runs]
+)
+</pre>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="doc-section">
+    <h2>9. Dashboard Structure</h2>
+    <ul>
+      <li>Overview: Career summary & key indicators</li>
+      <li>Consistency Analysis: 30+/50+/100+ distribution</li>
+      <li>Conditions: Home vs Away vs Neutral performance</li>
+      <li>Dismissals: Mode of dismissal impact</li>
+      <li>Trends & Forecasting: Moving averages & projections</li>
+      <li>Insights: Data-driven observations</li>
+    </ul>
+  </div>
+
+  <!-- 9 -->
+  <div class="doc-section">
+    <h2>10. Insights Generated</h2>
+    <ul>
+      <li>Higher consistency in home conditions compared to away</li>
+      <li>Performance volatility varies significantly across formats</li>
+      <li>Strike rate plays a larger role in impact than raw runs</li>
+      <li>Not-out innings heavily influence impact metrics</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+  <h2>11.Issues Faced & Fixes</h2>
+  <table class="doc-table">
+    <tr><th>Issue</th><th>Root Cause</th><th>Fix</th></tr>
+    <tr>
+      <td>DAX errors in rolling average formulas</td>
+      <td>Date/innings context + incorrect variable references</td>
+      <td>Used MAX date/innings variable + FILTER(ALL()) pattern</td>
+    </tr>
+    <tr>
+      <td>Forecast % showing 0</td>
+      <td>Measure dividing by blank/0 base value</td>
+      <td>Added safe DIVIDE() logic + ensured correct base measure</td>
+    </tr>
+    <tr>
+      <td>Visuals not reacting to slicers correctly</td>
+      <td>Relationship/filter direction issues</td>
+      <td>Adjusted model relationships and measure context</td>
+    </tr>
+  </table>
+</div>
+
+  <!-- 10 -->
+  <div class="doc-section">
+    <h2>12. Outcome</h2>
+    <p>
+      This project transformed raw sports data into a structured analytical narrative.
+      It demonstrates how advanced metrics, trend analysis, and forecasting can be
+      applied to performance evaluation—skills directly transferable to business analytics.
+    </p>
+  </div>
+  <div class="doc-section">
+  <h2>13.Future Improvements</h2>
+  <ul>
+    <li>Add opponent-strength weighting for impact score</li>
+    <li>Build ML-based forecast (ARIMA/Prophet) and compare with DAX forecast</li>
+    <li>Automate data updates (API / scraping → dataset refresh)</li>
+    <li>Create a standardized “Player Comparison” module for other players</li>
+  </ul>
+</div>
+</div>
+<div class="doc-section">
+  <h2>Project Documentation (PDF)</h2>
+  <p>
+    A detailed, formal version of this project documentation is available as a PDF.
+    This includes complete metric definitions, dashboard explanations, and analysis notes.
+  </p>
+
+  <a class="btn primary"
+     href="../assets/pdfs/kohli_analytics_documentation.pdf"
+     target="_blank"
+     rel="noopener">
+    📄 View Full Documentation (PDF)
+  </a>
+</div>
+
+</body>
+</html>

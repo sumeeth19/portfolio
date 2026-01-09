@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Retail Sales Analytics Platform | Project</title>
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container nav">
+    <div class="brand">
+      <b>Retail Sales Analytics Platform</b>
+      <small>Project Details</small>
+    </div>
+
+    <div class="navlinks" style="display:flex">
+      <a href="../index.html">Home</a>
+      <a href="../data-analyst.html">Data Analyst</a>
+      <a href="../data-engineer.html">Data Engineer</a>
+    </div>
+  </div>
+</div>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Retail Sales Analytics Platform | Documentation</title>
+  <link rel="stylesheet" href="../assets/css/styles.css"/>
+</head>
+<body>
+<!-- Documentation Content -->
+<div class="doc-container">
+
+  <!-- Title -->
+  <div class="doc-title">
+    <h1>Retail Sales Analytics Platform</h1>
+    <p>SQL • BigQuery • Power BI • KPI Modeling • Time Intelligence</p>
+  </div>
+
+  <div class="doc-section">
+  <h2>Quick Scan</h2>
+  <ul>
+    <li><b>Goal:</b> Executive-ready KPI dashboards for retail performance tracking</li>
+    <li><b>Skills:</b> SQL cleaning + KPI modeling + MoM/YoY + segmentation</li>
+    <li><b>Tools:</b> BigQuery, SQL, Power BI, GCS</li>
+    <li><b>Output:</b> Curated analytics dataset + multi-page dashboard + recommendations</li>
+  </ul>
+</div>
+
+  <!-- 1. Business Problem -->
+  <div class="doc-section">
+    <h2>1. Business Problem</h2>
+    <p>
+      Business stakeholders lacked a unified analytics solution to track
+      revenue performance, customer behavior, and product trends over time.
+      Reporting was manual, inconsistent, and time-consuming.
+    </p>
+  </div>
+
+  <!-- 2. Objective -->
+  <div class="doc-section">
+    <h2>2. Project Objective</h2>
+    <ul>
+      <li>Create a clean, analytics-ready dataset</li>
+      <li>Define standardized business KPIs</li>
+      <li>Enable MoM and YoY trend analysis</li>
+      <li>Deliver executive-ready dashboards</li>
+    </ul>
+  </div>
+
+  <!-- 3. Architecture -->
+  <div class="doc-section">
+    <h2>3. Architecture & Data Flow</h2>
+    <ul>
+      <li>Raw sales data ingested into Google Cloud Storage</li>
+      <li>Data cleaned and transformed using BigQuery SQL</li>
+      <li>Curated analytics views created for reporting</li>
+      <li>Power BI connected to BigQuery views</li>
+    </ul>
+  </div>
+
+  <div class="doc-section">
+  <h2>Architecture Flow</h2>
+  <pre class="doc-code">Raw CSV (GCS)
+   ↓
+BigQuery Raw Table
+   ↓
+BigQuery Cleaning + Standardization (sales_clean)
+   ↓
+KPI Views / Aggregations (sales_kpi_view)
+   ↓
+Power BI Report (Executive dashboards)</pre>
+</div>
+
+  <!-- 4. Data Model -->
+  <div class="doc-section">
+    <h2>4. Data Model</h2>
+
+    <table class="doc-table">
+      <tr>
+        <th>Table Name</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>sales_raw</td>
+        <td>Raw ingested sales data</td>
+      </tr>
+      <tr>
+        <td>sales_clean</td>
+        <td>Validated and standardized sales records</td>
+      </tr>
+      <tr>
+        <td>sales_kpi_view</td>
+        <td>Aggregated KPI and time-based metrics</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 5. Transformations -->
+  <div class="doc-section">
+    <h2>5. Data Transformations</h2>
+    <ul>
+      <li>Filtered invalid quantity and price values</li>
+      <li>Converted order_date to DATE format</li>
+      <li>Derived Year, Month, and Year-Month fields</li>
+      <li>Calculated revenue and discount metrics</li>
+      <li>Applied customer and product segmentation</li>
+    </ul>
+  </div>
+
+  <!-- 6. Sample SQL -->
+  <div class="doc-section">
+    <h2>6. Sample SQL Logic</h2>
+    <div class="doc-code">
+<pre>
+SELECT
+  EXTRACT(YEAR FROM order_date) AS order_year,
+  EXTRACT(MONTH FROM order_date) AS order_month,
+  SUM(total_amount) AS total_revenue
+FROM sales_clean
+GROUP BY 1,2;
+</pre>
+    </div>
+  </div>
+
+  <!-- 7. KPIs -->
+  
+   <div class="doc-section">
+  <h2>7.Key Metrics & Measures</h2>
+  <p>
+    Key metrics were derived from cleaned BigQuery tables and implemented as Power BI measures
+    to support business performance analysis.
+  </p>
+
+  <table class="doc-table">
+    <tr>
+      <th>Metric</th>
+      <th>Source</th>
+      <th>Purpose</th>
+    </tr>
+    <tr>
+      <td>Total Revenue</td>
+      <td>SUM(final_amount)</td>
+      <td>Overall sales performance tracking</td>
+    </tr>
+    <tr>
+      <td>Total Orders</td>
+      <td>COUNT(order_id)</td>
+      <td>Volume analysis</td>
+    </tr>
+    <tr>
+      <td>Average Order Value (AOV)</td>
+      <td>Revenue / Orders</td>
+      <td>Customer spending behavior</td>
+    </tr>
+    <tr>
+      <td>MoM Growth %</td>
+      <td>DAX Time Intelligence</td>
+      <td>Month-over-month trend analysis</td>
+    </tr>
+    <tr>
+      <td>YoY Growth %</td>
+      <td>DAX Time Intelligence</td>
+      <td>Year-over-year comparison</td>
+    </tr>
+  </table>
+</div>
+
+  <!-- 8. Challenges -->
+ <div class="doc-section">
+  <h2>8.Issues Faced & Fixes</h2>
+  <table class="doc-table">
+    <tr><th>Issue</th><th>Root Cause</th><th>Fix</th></tr>
+    <tr>
+      <td>Power BI → BigQuery sign-in problems</td>
+      <td>Authentication / connector configuration</td>
+      <td>Reconnected using correct account + connector settings</td>
+    </tr>
+    <tr>
+      <td>Materialized views not visible in Power BI</td>
+      <td>Connector limitations for materialized views</td>
+      <td>Created standard views for reporting</td>
+    </tr>
+    <tr>
+      <td>Dashboard slow / visuals lag</td>
+      <td>Heavy model + unoptimized queries</td>
+      <td>Reduced columns, optimized measures, improved SQL</td>
+    </tr>
+  </table>
+</div>
+
+
+  <!-- 9. Outcome -->
+  <div class="doc-section">
+    <h2>9. Outcome & Impact</h2>
+    <p>
+      The project delivered a centralized analytics platform that improved
+      reporting accuracy, reduced manual effort, and enabled faster
+      data-driven decision-making.
+    </p>
+  </div>
+
+  <div class="doc-section">
+  <h2>10.Future Improvements</h2>
+  <ul>
+    <li>Implement incremental refresh / incremental loads using a watermark column</li>
+    <li>Add automated data quality checks (null %, outliers, duplicates)</li>
+    <li>Create star schema (fact_sales + dimension tables) for better performance</li>
+    <li>Automate refresh and monitoring using Airflow / Cloud Composer</li>
+  </ul>
+</div>
+</div>
+<div class="doc-section">
+  <h2>Project Documentation (PDF)</h2>
+  <p>
+    A detailed, formal version of this Retail Sales project documentation is available as a PDF.
+    It includes the full workflow, KPI definitions, dashboard page explanations, and issues/fixes.
+  </p>
+
+  <a class="btn primary"
+     href="../assets/pdfs/retail_sales_documentation_1.pdf"
+     target="_blank"
+     rel="noopener">
+    📄 View Full Documentation (PDF)
+  </a>
+</div>
+
+</body>
+</html>
+
